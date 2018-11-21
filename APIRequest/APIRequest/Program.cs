@@ -13,14 +13,15 @@ namespace APIRequest
         static void Main(string[] args)
         {
             var client = new RestClient("https://jsonplaceholder.typicode.com");
-            //client.BaseUrl = new Uri("http://twitter.com");
-            //client.Authenticator = new HttpBasicAuthenticator("username", "password");
+            
 
             var request = new RestRequest("/users", Method.GET);
             //request.Resource = "statuses/friends_timeline.xml";
 
+            // execute the request
             IRestResponse response = client.Execute(request);
             var content = response.Content;
+            //returns raw content as string
             Console.WriteLine("Response.Content: " + content);
                 
 
