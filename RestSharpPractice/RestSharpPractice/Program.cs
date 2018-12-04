@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,10 +31,27 @@ namespace RestSharpPractice
             //convert the Json object to an array
             JArray a = JArray.Parse(content);
             Console.WriteLine("String a: " + a);
-        
-            foreach (var item in a)
+
+            var connstring = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = RestSharpDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+
+            using (SqlConnection connection = new SqlConnection(connstring))
             {
-                Console.WriteLine("Items in a: " + item);
+                connection.Open();
+                foreach (var item in a)
+                {
+                    //Console.WriteLine("Items in a: " + item);
+                    SqlCommand insCommand = new SqlCommand("INSERT INTO [User] (Id, Name, UserName, Email) VALUES (@Id, @Name, @UserName, @Email)", connection);
+                    insCommand.Parameters.AddWithValue("@Id", item["id"].ToObject<int>());
+                    insCommand.Parameters.AddWithValue("@Name", item["name"].ToString());
+                    insCommand.Parameters.AddWithValue("@UserName", item["username"].ToString());
+                    insCommand.Parameters.AddWithValue("@Email", item["email"].ToString());
+
+                    insCommand.ExecuteNonQuery();
+                }
+                Console.WriteLine("DB updated");
+                connection.Close();
+
+                
             }
         }
     }
