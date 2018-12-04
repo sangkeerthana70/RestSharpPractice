@@ -29,6 +29,7 @@ namespace RestSharpPractice
             //var output = JsonConvert.DeserializeObject(content);
             //Console.WriteLine(output);
             //convert the Json object to an array
+            //There is anoher way of converting the deserialized json object into an array to loop through
             JArray a = JArray.Parse(content);
             Console.WriteLine("String a: " + a);
 
