@@ -1,0 +1,40 @@
+string api_result = 
+"
+{
+\"name\" : \"Senthil\",
+"age" " 41,
+"gender" : "Male",
+"country of birth": "India",
+"Medical Records" :
+[
+{
+"height" : 165,
+"weight" : 134.4,
+"blood pressure" : 120,
+"date" : "2018-01-01"
+}
+,
+{
+"height" : 165,
+"weight" : 130.4,
+"blood pressure" : 120,
+"date" : "2017-01-01"
+}
+]
+}
+"
+
+
+
+Class Person
+
+Class Medical Record
+
+
+
+
+Table Person
+Table Medical Record
+
+
+
