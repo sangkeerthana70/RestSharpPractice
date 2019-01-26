@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace MorePracticeWithRestSharp
 {
-    class MedicalRecord
+    public class MedicalRecord
     {
-        public int height { get; set; }
-        public int weight { get; set; }
-        public int bloodPressure { get; set; }
+        public float height { get; set; }
+        public float weight { get; set; }
+        public float bloodPressure { get; set; }
         public DateTime createDate { get; set; }
+
+        public void AboutMe()
+        {
+            Console.WriteLine("My height is " + height + " My weight is " + weight + " My blood pressure is " + bloodPressure);
+
+            
+        }
     }
+
+    
 }
