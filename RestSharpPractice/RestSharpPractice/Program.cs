@@ -33,6 +33,7 @@ namespace RestSharpPractice
             JArray a = JArray.Parse(content);
             Console.WriteLine("String a: " + a);
 
+            //use connection string from the 
             var connstring = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = RestSharpDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
 
             using (SqlConnection connection = new SqlConnection(connstring))
