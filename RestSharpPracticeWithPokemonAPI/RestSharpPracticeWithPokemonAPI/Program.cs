@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace RestSharpPracticeWithPokemonAPI
             Console.WriteLine("Final Content: " + contentType);
             string content = response.Content;
             Console.WriteLine("Content: " + content);
+
+            JObject apiResult = JObject.Parse(content);
 
         }
     }
