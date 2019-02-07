@@ -39,7 +39,7 @@ namespace RestSharpPracticeWithPokemonAPI
         {
             Console.WriteLine("My Pokemon Id : " + this.PokeId);
             Console.WriteLine("My name is: " + Name);
-            Console.WriteLine("I am a " + SuperType + SubType + "type");
+            Console.WriteLine("I am a " + SuperType + SubType + " type");
             Console.WriteLine("My artist is: " + artist);
             Console.WriteLine("My rarity is: " + rarity);
             Console.WriteLine("My attackName is : " + Attack1Name);
